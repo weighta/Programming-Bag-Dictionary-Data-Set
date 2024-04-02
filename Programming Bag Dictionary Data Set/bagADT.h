@@ -19,6 +19,7 @@ template <typename E>
 class Bag {
 public:
 	Bag() {}            // base constructor
+	Bag(int size) {} //size constructor
 	virtual ~Bag() {}   // base destructor
 
 	// Insert a new item into the bag -- return false if fails and true if

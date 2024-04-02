@@ -18,7 +18,7 @@ public:
 	ABag(int size) {
 		used = 0;
 		capacity = size;
-		data = new E(capacity);
+		data = new E[size];
 	}
 	~ABag() {
 
@@ -70,10 +70,10 @@ public:
 		used = 0;
 	}
 	bool operator+=(const E& addend) {
-		addItem(addend);
+		return addItem(addend);
 	}
 	int size() const { return used; }
-	int bagCapacity() { return capacity; }
+	int bagCapacity() const { return capacity; }
 	// bag methods: addItem, remove, operator+=, size, etc.
 
 private:

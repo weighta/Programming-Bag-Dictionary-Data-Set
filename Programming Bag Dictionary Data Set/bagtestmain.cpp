@@ -41,7 +41,7 @@ int main(int argc, char** argv) {
 
 	// REMOVEANY: myIntStrDict
 	string strData;
-	if (myIntStrDict.removeAny(strData) == true) {
+	if (myIntStrDict.removeAny(strData)) {
 		cout << "REMOVEANY: My string data is " << strData << endl;
 	}
 	else {
@@ -51,7 +51,7 @@ int main(int argc, char** argv) {
 
 	// FIND: test for myIntStrDict.find
 	int intKey = 40;
-	if (myIntStrDict.find(intKey, strData) == true) {
+	if (myIntStrDict.find(intKey, strData)) {
 		cout << "FIND: My data at key==" << intKey << " is: " << strData << "\n";
 		cout << "Size of myIntStrDict is " << myIntStrDict.size() << "\n";
 	}
@@ -61,7 +61,7 @@ int main(int argc, char** argv) {
 
 	// REMOVE: myIntStrDict
 	intKey = 60;
-	if (myIntStrDict.remove(intKey, strData) == true) {
+	if (myIntStrDict.remove(intKey, strData)) {
 		cout << "REMOVE: Removed key " << intKey << " which was " << strData << "\n";
 	}
 	else {
@@ -91,7 +91,7 @@ int main(int argc, char** argv) {
 
 	// REMOVEANY: myStrIntDict
 	int intData;
-	if (myStrIntDict.removeAny(intData) == true) {
+	if (myStrIntDict.removeAny(intData)) {
 		cout << "REMOVEANY: My int data is " << intData << endl;
 	}
 	else {
@@ -101,7 +101,7 @@ int main(int argc, char** argv) {
 
 	// FIND: myStrIntDict.find
 	string strKey = "Kiwi";
-	if (myStrIntDict.find(strKey, intData) == true) {
+	if (myStrIntDict.find(strKey, intData)) {
 		cout << "FIND: " << strKey << "\'s age is " << intData << endl;
 		cout << "Size of myStrIntDict is " << myStrIntDict.size() << "\n";
 	}
@@ -111,7 +111,7 @@ int main(int argc, char** argv) {
 
 	// REMOVE: myStrIntDict
 	strKey = "Button";
-	if (myStrIntDict.remove(strKey, intData) == true) {
+	if (myStrIntDict.remove(strKey, intData)) {
 		cout << "REMOVE: Removed key " << strKey << " which was " << intData << "\n";
 	}
 	else {

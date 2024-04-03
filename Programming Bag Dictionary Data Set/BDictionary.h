@@ -34,30 +34,31 @@ public:
 		return dictionary->addItem(pair);
 	}
 	bool remove(const Key& k, E& rtnVal) {
-		if (this->find(k, rtnVal)) {
-			//dictionary->remove(rtnVal);
+		KVpair<Key, E> pair(k, rtnVal);
+		if (dictionary->remove(pair)) {
+			rtnVal = pair.value();
 			return true;
 		}
 		return false;
 	}
 	bool removeAny(E& returnValue) {
-		if (dictionary->size() != 0) { //if not zero
-			//this->remove(dictionary[0], returnValue);
-			return true;
+		KVpair<Key, E> pair;
+		if (dictionary->inspectTop(pair)) {
+			returnValue = pair.value();
+			return dictionary->removeTop(pair);
 		}
 		return false;
 	}
 	bool find(const Key& k, E& returnValue) const {
-		//if (dictionary->find(k)){}
-		for (int i = 0; i < dictionary->size(); i++) {
-			//if (dictionary[i].find(k))
-			//{
-			//	return true;
-			//}
+		KVpair<Key, E> pair(k, returnValue);
+		if (dictionary->find(pair)) {
+			returnValue = pair.value();
+			return true;
 		}
+		
 		return false;
 	}
-	int size() { return dictionary->size(); }
+	int size() const { return dictionary->size(); }
 	// methods: clear, insert, remove, removeAny, find, size, etc.
 
 private:

@@ -27,13 +27,15 @@ public:
 
 	bool addItem(const E& item) {
 		if (used == capacity) return false;
-		data[used++] = item;
+		data[used++] =item;
 		return true;
 	}
 	bool remove(E& item) {
 		for (int i = 0; i < used; i++) {
-			if (data[i] == item) {
-				data[i] = value;
+			if (data[i]==item) {
+				item =data[i];
+				memset(&data[i], 0, sizeof(E)); //i mean, do we really need to do this?
+				used--;
 				return true;
 			}
 		}
@@ -41,16 +43,16 @@ public:
 	}
 	bool removeTop(E& returnValue) {
 		if (used) {
-			returnValue = data[--used];
-			data[used] = value;
+			returnValue =data[--used];
+			memset(&data[used], 0, sizeof(E)); //maybe not necessary
 			return true;
 		}
 		return used;
 	}
 	bool find(E& returnValue) const {
 		for (int i = 0; i < used; i++) {
-			if (data[i] == returnValue) {
-				returnValue = data[i];
+			if (data[i]==returnValue) {
+				returnValue =data[i];
 				return true;
 			}
 		}
@@ -58,15 +60,13 @@ public:
 	}
 	bool inspectTop(E& item) const {
 		if (used) {
-			item = data[used - 1];
+			item =data[used - 1];
 			return true;
 		}
 		return false;
 	}
 	void emptyBag() {
-		for (int i = 0; i < used; i++) {
-			data[i] = value;
-		}
+		memset(data, 0, used * sizeof(E)); //huh
 		used = 0;
 	}
 	bool operator+=(const E& addend) {
@@ -77,10 +77,9 @@ public:
 	// bag methods: addItem, remove, operator+=, size, etc.
 
 private:
-	E *data;            // an array of items
+	E* data;            // an array of items
 	int used;           // number of items the data array currently holds
 	int capacity;       // the number of items the bag can hold (size of array)
-	E value;
 };
 
 #endif	/* ABAG_H */

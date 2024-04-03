@@ -43,7 +43,7 @@ public:
   virtual bool find(const Key& k, E& returnValue) const = 0;
 
   // Return the number of records in the dictionary.
-  virtual int size() = 0;
+  virtual int size() const = 0;
 };
 
 #endif

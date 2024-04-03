@@ -70,7 +70,7 @@ inline void swap(char* i, char* j) {
 }
 
 
-// Big enough for simple testing
+// Big enough for simple testing --this is giving me errors, i think the compiler is unware it is a value
 //#define INFINITY 9999
 
 // Timing variables and functions
